@@ -1,0 +1,39 @@
+{
+  "name": "webmcp-framework",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "docs-site",
+    "examples/*"
+  ],
+  "scripts": {
+    "docs:dev": "pnpm --dir docs-site run dev",
+    "docs:build": "pnpm --dir docs-site run build",
+    "example:coffee-shop:dev": "pnpm --dir examples/coffee-shop run dev",
+    "example:coffee-shop:build": "pnpm --dir examples/coffee-shop run build",
+    "example:coffee-shop:test": "pnpm --dir examples/coffee-shop run test",
+    "typecheck:examples": "pnpm --dir examples/coffee-shop run typecheck",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:docs": "node scripts/check-doc-links.mjs",
+    "test:compatibility": "vitest run packages/core/tests/compatibility.test.ts packages/vue/tests/ssr-safety.test.ts",
+    "test:entrypoints": "pnpm run build && node scripts/check-entrypoints.mjs",
+    "test:watch": "vitest",
+    "build": "tsc -b packages/core packages/vue"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "better-sqlite3",
+      "esbuild",
+      "sharp"
+    ]
+  },
+  "devDependencies": {
+    "@vue/server-renderer": "^3.5.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0",
+    "vue": "^3.5.0"
+  }
+}

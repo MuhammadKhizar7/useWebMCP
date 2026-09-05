@@ -1,0 +1,110 @@
+---
+title: Vue Coffee Shop Demo
+description: Explore a complete Vue storefront with optional WebMCP tools.
+navigation:
+  title: Coffee Shop Demo
+  order: 1
+---
+
+# Vue Coffee Shop Demo
+
+The repository includes a small Vue and Vite application at
+`examples/coffee-shop`. It is a normal coffee-shop storefront first and a
+WebMCP example second. When the browser does not expose
+`document.modelContext`, the catalog, product pages, order history, and cart
+continue to work without WebMCP registration.
+
+## Run the demo
+
+From the repository root, install dependencies that are already declared by
+the workspace, then start the example:
+
+```sh
+pnpm example:coffee-shop:dev
+```
+
+Open the local URL printed by Vite. To verify the production bundle without
+starting a server, run:
+
+```sh
+pnpm example:coffee-shop:build
+```
+
+To test discovery, use a Chrome environment that currently exposes WebMCP and
+satisfies its origin and feature-availability requirements. Open the demo in
+that environment, then use the environment's WebMCP tool interface or
+inspector to inspect the registered tools. This example uses the package's
+real `document.modelContext` capability detection; it does not install a fake
+model context or a browser-version check.
+
+If WebMCP is unavailable, the page displays an optional-capability notice.
+That is an expected progressive-enhancement state, not a demo failure.
+
+## Tool catalog
+
+The root app component owns the persistent tools. The product page owns the
+machine specification tool, so that tool follows the currently displayed product.
+
+| Tool | Owner | Visible UI journey | Result or side effect | Security annotations |
+| --- | --- | --- | --- |
+| `search_catalog` | Root app component | Search from the home page, then open a matching product | Returns concise product IDs, names, categories, and prices. It does not navigate on the model's behalf. | `readOnlyHint: true`, `openWorldHint: false`, `untrustedContentHint: true` |
+| `get_order_history` | Root app component | Open **Order history** | Returns the deterministic local order fixtures and their line items. | `readOnlyHint: true`, `openWorldHint: false`, `untrustedContentHint: true` |
+| `reorder_product` | Root app component | Open **Order history** or the cart | Adds one coffee product, or a requested quantity from 1 to 20, to the cart. The UI updates the cart count and toast. Equipment cannot be reordered through this tool. | `readOnlyHint: false`, `destructiveHint: false`, `idempotentHint: false`, `openWorldHint: false`, `untrustedContentHint: false` |
+| `get_machine_specifications` | Product page component | Open **The Alchemist**, then ask about a specification | Returns the requested specification, highlights it, and scrolls the page to the matching row. The registration is removed when the product page unmounts. | `readOnlyHint: true`, `destructiveHint: false`, `idempotentHint: true`, `openWorldHint: false`, `untrustedContentHint: false` |
+
+All tool inputs are validated in the callback, including object shape, required
+strings, unknown properties, and reorder quantity limits. The order-history
+fixture represents a local signed-in customer view; it is not an authentication
+system. These annotations describe the tool and its returned content. They do
+not replace authorization or other application security checks.
+
+## Journey: reorder usual coffee
+
+Try this prompt with an agent connected to the running demo:
+
+> I am running low on my usual coffee. Find a coffee from my order history and add it to the cart.
+
+The local journey is:
+
+1. The agent calls `get_order_history` and identifies a coffee product ID.
+2. The agent calls `reorder_product` with that ID and an optional quantity.
+3. The cart count increases, and the demo shows its reorder toast.
+4. The user can open the cart and review the item before any checkout step. This demo does not expose a checkout or payment tool.
+
+The fixture data includes coffee and non-coffee items. The callback filters
+reorders to coffee products, so an equipment ID is rejected.
+
+## Journey: espresso machine under a cabinet
+
+Try this prompt:
+
+> Will The Alchemist espresso machine fit under a 15-inch cabinet, and what is its water tank capacity?
+
+The local journey is:
+
+1. The agent calls `search_catalog` for the espresso machine.
+2. The user opens the matching result at the `/product/the-alchemist` route. The local app does not expose a navigation tool that moves the agent between routes.
+3. The product page exposes `get_machine_specifications`.
+4. The agent requests `Height` and `Water tank` separately. The UI focuses each matching specification row while the tool returns `12 in` and `2.0 L`.
+
+The local implementation does not expose a generic navigation tool and does
+not claim to prove physical fit beyond reporting the fixture's height. A user
+or agent can compare the returned `12 in` value with the stated `15-inch`
+clearance.
+
+## Ownership boundaries
+
+`App.vue` calls `useCoffeeTools`, which registers `search_catalog`,
+`get_order_history`, and `reorder_product` after the root component mounts. Those
+registrations survive route changes and are disposed when the root unmounts.
+`ProductPage.vue` calls `useCoffeeTools` with `includeAppTools: false` and a
+route-derived machine product ID; it registers only
+`get_machine_specifications`, which is disposed when the product page unmounts.
+
+This split prevents a product-specific tool from leaking into another route.
+It also means the demo can continue rendering and navigating when the browser
+capability is absent, because the Vue adapter starts registration only after
+mount and feature-detects the real browser surface.
+
+See [external WebMCP demos](/examples/external/upstream-demos) for the source demo
+catalog and attribution notes.

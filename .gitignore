@@ -1,0 +1,6 @@
+/docs-site/.nuxt/
+/docs-site/.output/
+/docs
+dist
+node_modules/
+.data/
