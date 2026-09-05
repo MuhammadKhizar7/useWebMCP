@@ -1,5 +1,7 @@
 # use-vue-webmcp-tool
 
+[![npm version](https://img.shields.io/npm/v/use-vue-webmcp-tool)](https://www.npmjs.com/package/use-vue-webmcp-tool)
+
 Vue 3 composable for browser WebMCP tools. Wraps `webmcp-tool-core` with reactive options, auto-start on mount, and cleanup on unmount.
 
 ## Install

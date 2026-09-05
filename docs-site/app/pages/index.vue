@@ -4,15 +4,15 @@ definePageMeta({
 })
 
 useHead({
-  title: 'WebMCP Tools for Vue and Nuxt',
+  title: 'WebMCP Tools for Vue',
 })
 </script>
 
 <template>
   <UPageHero
-    headline="WebMCP Tools for Vue and Nuxt"
+    headline="WebMCP Tools for Vue"
     title="Give your Vue app useful tools"
-    description="A small, framework-neutral core for registering WebMCP tools in Vue and Nuxt applications. Your app keeps working normally when WebMCP is unavailable."
+    description="A small, framework-neutral core and Vue composable for registering WebMCP tools in browser applications. Your app keeps working normally when WebMCP is unavailable."
     :links="[
       { label: 'Install for Vue', to: '/getting-started/vue-installation', icon: 'i-lucide-rocket' },
       { label: 'See the coffee shop demo', color: 'neutral', variant: 'subtle', icon: 'i-lucide-coffee', to: '/vue/examples/coffee-shop' },
@@ -25,12 +25,12 @@ useHead({
     title="Start with the job your app already does"
     description="Add a clear, validated tool to an existing flow. WebMCP stays optional, so people can use the app with or without a compatible browser."
     :features="[
-      { title: 'Works with Vue and Nuxt', description: 'Use a Vue composable for component-owned tools or the Nuxt module for client-safe application tools.', icon: 'i-lucide-layers' },
+      { title: 'Works with Vue 3', description: 'Use a Vue composable for component-owned tools with reactive options and automatic lifecycle management.', icon: 'i-lucide-layers' },
       { title: 'Optional by design', description: 'The browser capability is detected at runtime. Your regular UI remains the source of truth.', icon: 'i-lucide-sparkles' },
       { title: 'Validate every request', description: 'Describe inputs for discovery, then validate arguments and authorization inside the callback.', icon: 'i-lucide-shield-check' },
       { title: 'Keep tools in scope', description: 'Tie a tool to a component, route, or whole app so it is available exactly where it makes sense.', icon: 'i-lucide-scan-search' },
-      { title: 'Use JavaScript or TypeScript', description: 'The core ships as ESM. Use plain JavaScript with a bundler, or add Vue and Nuxt adapters when needed.', icon: 'i-lucide-code-2' },
-      { title: 'Small public surface', description: 'Use the core controller directly or choose the Vue and Nuxt APIs that fit your application.', icon: 'i-lucide-puzzle' },
+      { title: 'Use JavaScript or TypeScript', description: 'The core ships as ESM. Use plain JavaScript with a bundler, or add the Vue composable when needed.', icon: 'i-lucide-code-2' },
+      { title: 'Small public surface', description: 'Use the core controller directly or choose the Vue composable API for your application.', icon: 'i-lucide-puzzle' },
     ]"
   />
 
@@ -66,7 +66,7 @@ useHead({
 
   <UPageCTA
     title="Pick the guide that matches your next step"
-    description="Learn the Vue path first, then add Nuxt, JavaScript, security, or direct core integration as your project needs it."
+    description="Learn the Vue path first, then explore JavaScript, security, or direct core integration as your project needs it."
     :links="[
       { label: 'Read the docs', to: '/getting-started/vue-installation', icon: 'i-lucide-book-open' },
       { label: 'JavaScript support', color: 'neutral', variant: 'subtle', trailingIcon: 'i-lucide-arrow-right', to: '/javascript' },

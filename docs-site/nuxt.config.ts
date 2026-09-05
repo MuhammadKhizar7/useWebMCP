@@ -4,14 +4,14 @@ export default defineNuxtConfig({
   compatibilityDate: '2026-09-04',
 
   site: {
-    name: 'WebMCP Tools for Vue and Nuxt',
-    description: 'A small, framework-neutral core for registering WebMCP tools in Vue and Nuxt applications.',
+    name: 'WebMCP Tools for Vue',
+    description: 'A small, framework-neutral core and Vue composable for registering WebMCP tools in browser applications.',
   },
 
   appConfig: {
     seo: {
-      title: 'WebMCP Tools for Vue and Nuxt',
-      description: 'A small, framework-neutral core for registering WebMCP tools in Vue and Nuxt applications.',
+      title: 'WebMCP Tools for Vue',
+      description: 'A small, framework-neutral core and Vue composable for registering WebMCP tools in browser applications.',
     },
     github: false,
   },

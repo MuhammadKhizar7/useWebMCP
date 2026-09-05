@@ -1,5 +1,7 @@
 # webmcp-tool-core
 
+[![npm version](https://img.shields.io/npm/v/webmcp-tool-core)](https://www.npmjs.com/package/webmcp-tool-core)
+
 Framework-neutral lifecycle for browser WebMCP tools. Handles detection, registration, retry, abort cleanup, and result normalization for `document.modelContext`.
 
 ## Install
