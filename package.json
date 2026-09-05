@@ -20,7 +20,8 @@
     "test:compatibility": "vitest run packages/core/tests/compatibility.test.ts packages/vue/tests/ssr-safety.test.ts",
     "test:entrypoints": "pnpm run build && node scripts/check-entrypoints.mjs",
     "test:watch": "vitest",
-    "build": "tsc -b packages/core packages/vue"
+    "build": "tsc -b packages/core packages/vue",
+    "release": "pnpm build && pnpm --filter webmcp-tool-core publish && pnpm --filter use-vue-webmcp-tool publish"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

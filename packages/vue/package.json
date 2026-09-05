@@ -1,6 +1,8 @@
 {
   "name": "use-vue-webmcp-tool",
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "description": "Vue 3 composable for browser WebMCP tools",
+  "license": "MIT",
   "type": "module",
   "files": [
     "dist"
@@ -15,7 +17,29 @@
     }
   },
   "dependencies": {
-    "webmcp-tool-core": "workspace:*",
+    "webmcp-tool-core": "^0.1.0"
+  },
+  "peerDependencies": {
     "vue": "^3.5.0"
+  },
+  "peerDependenciesMeta": {
+    "vue": {
+      "optional": false
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MuhammadKhizar7/useWebMCP.git",
+    "directory": "packages/vue"
+  },
+  "homepage": "https://github.com/MuhammadKhizar7/useWebMCP#readme",
+  "bugs": {
+    "url": "https://github.com/MuhammadKhizar7/useWebMCP/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }
