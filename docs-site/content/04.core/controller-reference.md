@@ -11,6 +11,11 @@ navigation:
 `createToolController` owns one tool registration. It can be used directly from
 framework code or wrapped by the Vue composables.
 
+::note
+The Vue `useWebMCP` composable wraps this controller. Use the controller directly
+when you need framework-neutral control or are building a custom integration.
+::
+
 ## Create a controller
 
 ```ts [src/webmcp.ts]
@@ -85,12 +90,43 @@ function. Calling `stop` and the returned unsubscribe function is safe more than
 once. Each active registration has its own `AbortController`; stopping aborts
 in-flight work and uses `unregisterTool` when available.
 
+## Lifecycle states
+
+::steps{icon="i-lucide-list"}
+
+### Initial state
+
+The controller starts with `{ supported: false, registered: false, error: null }`.
+
+### Discovery
+
+When `start()` is called, the controller retries discovery every 100ms for up to
+3 seconds, looking for `document.modelContext`.
+
+### Registered
+
+Once `registerTool` succeeds, `supported` and `registered` become `true`.
+
+### Timeout
+
+If discovery fails after 3 seconds, `error` becomes a `ToolTimeoutError` while
+`supported` remains `false`.
+
+::
+
 ## Updates and identity
 
 The controller keeps the current `execute`, `formatOutput`, and `onError`
 references in its options. A callback can therefore close over current
 application state without causing browser re-registration. The registered
 wrapper calls the latest callback when the model invokes the tool.
+
+::important{icon="i-lucide-refresh-cw"}
+**Callback vs metadata changes.** Changing `execute`, `formatOutput`, or `onError`
+does NOT re-register the tool — the browser wrapper calls the latest callback.
+Changing `name`, `description`, `inputSchema`, or `annotations` DOES trigger
+re-registration. Equal serialized metadata avoids unnecessary re-registration.
+::
 
 The registration identity contains `name`, `description`, and the serialized
 `inputSchema` and `annotations`. Equal serialized metadata does not replace the
@@ -109,8 +145,11 @@ The wrapper normalizes callback results as follows:
 - Unserializable values and thrown or rejected values become an error content
   response with `isError: true`.
 
+::warning{icon="i-lucide-alert-triangle"}
 Thrown values are converted to `Error` instances. The latest `onError` callback
 receives that error, but an error thrown by `onError` does not replace the
-normalized tool result. Registration failures appear in `snapshot.error` as an
-`Error`, normally a `ToolRegistrationError`. Discovery timeout uses
-`ToolTimeoutError`.
+normalized tool result.
+::
+
+Registration failures appear in `snapshot.error` as an `Error`, normally a
+`ToolRegistrationError`. Discovery timeout uses `ToolTimeoutError`.

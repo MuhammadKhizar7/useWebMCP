@@ -41,6 +41,11 @@ const { supported, registered, error } = useWebMCP({
 </template>
 ```
 
+::note{icon="i-lucide-magic-wand"}
+**Auto-imported.** `useWebMCP` is available in any component without an import
+statement. The Nuxt module registers it at build time.
+::
+
 ## How it works under the hood
 
 The Nuxt module calls `addImports` at build time to register `useWebMCP` (and
@@ -52,6 +57,11 @@ export default defineNuxtConfig({
   modules: ['nuxt-webmcp-tool'],
 })
 ```
+
+::tip{icon="i-lucide-zap"}
+**Zero overhead.** The auto-import is a build-time convenience. At runtime,
+the composable is identical to importing from `vue-webmcp-tool` directly.
+::
 
 ## Explicit import (optional)
 
@@ -79,7 +89,36 @@ requirement.
 stops in `onUnmounted`, so no browser APIs are accessed during server-side
 rendering. You can safely use it in universal (SSR) mode.
 
-::note
-`inputSchema` documents the input but does not validate it. Validate the actual
-argument at the start of every callback, and perform authorization there too.
+::important{icon="i-lucide-server"}
+**SSR-safe.** The composable defers browser interaction to `onMounted`, so
+no browser APIs are accessed during server-side rendering. Safe in universal
+(SSR) and client-only modes.
+::
+
+## Lifecycle
+
+::steps{icon="i-lucide-list-ordered"}
+
+### Module setup
+
+The Nuxt module registers `useWebMCP` as an auto-import at build time.
+
+### Component mount
+
+When a component using `useWebMCP` mounts, the controller starts discovery.
+
+### Active
+
+The tool is registered and available to agents. Callbacks are kept current.
+
+### Component unmount
+
+The composable stops and cleans up the controller. The tool is removed.
+
+::
+
+::warning{icon="i-lucide-shield-alert"}
+**Validate input.** `inputSchema` documents the input but does not validate it.
+Validate the actual argument at the start of every callback, and perform
+authorization there too.
 ::
