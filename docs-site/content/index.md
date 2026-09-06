@@ -18,13 +18,26 @@ tool.
 
 ## Documentation
 
+### Vue
+
+- [Install for Vue](/getting-started/vue-installation)
 - [Build Your First Vue Tool](/getting-started/vue-first-tool)
-- [Controller Reference](/core/controller-reference)
 - [Register One Tool](/vue/use-webmcp)
-- [JavaScript Support](/javascript)
 - [Vue Coffee Shop Demo](/vue/examples/coffee-shop)
+
+### Nuxt
+
+- [Install for Nuxt](/getting-started/nuxt-installation)
+- [Register One Tool (Nuxt)](/nuxt/use-webmcp)
+
+### Core & Guides
+
+- [How WebMCP Works](/getting-started/how-webmcp-works)
+- [Controller Reference](/core/controller-reference)
+- [JavaScript Support](/javascript)
 - [External Demo Catalog](/examples/external/upstream-demos)
 - [Security](/guides/security)
+- [SSR & Browser Support](/guides/ssr-and-browser-support)
 - [Troubleshooting](/guides/troubleshooting)
 
 ## Browser capability
