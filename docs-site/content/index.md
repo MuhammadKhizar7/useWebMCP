@@ -34,7 +34,7 @@ tool.
 
 - [How WebMCP Works](/getting-started/how-webmcp-works)
 - [Controller Reference](/core/controller-reference)
-- [JavaScript Support](/javascript)
+- [JavaScript Support](/getting-started/javascript)
 - [External Demo Catalog](/examples/upstream-demos)
 - [Security](/guides/security)
 - [SSR & Browser Support](/guides/ssr-and-browser-support)
