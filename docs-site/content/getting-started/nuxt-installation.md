@@ -19,7 +19,7 @@ as an auto-import so you can use it in any component without explicit imports.
 pnpm add nuxt-webmcp-tool
 ```
 
-The module depends on `use-vue-webmcp-tool` and `webmcp-tool-core` which are
+The module depends on `vue-webmcp-tool` and `webmcp-tool-core` which are
 installed automatically.
 
 ### Add the module to `nuxt.config`

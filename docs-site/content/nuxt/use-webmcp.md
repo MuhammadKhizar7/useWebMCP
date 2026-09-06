@@ -45,7 +45,7 @@ const { supported, registered, error } = useWebMCP({
 
 The Nuxt module calls `addImports` at build time to register `useWebMCP` (and
 its types) as auto-imports. At runtime, the auto-imported composable is the
-same `useWebMCP` from `use-vue-webmcp-tool` — no wrapper, no extra overhead.
+same `useWebMCP` from `vue-webmcp-tool` — no wrapper, no extra overhead.
 
 ```ts [nuxt.config.ts]
 export default defineNuxtConfig({
@@ -60,7 +60,7 @@ the underlying package:
 
 ```vue
 <script setup lang="ts">
-import { useWebMCP } from 'use-vue-webmcp-tool'
+import { useWebMCP } from 'vue-webmcp-tool'
 
 const { supported, registered, error } = useWebMCP({
   name: 'my-tool',

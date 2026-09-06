@@ -1,7 +1,7 @@
 # WebMCP Tools for Vue
 
 [![npm webmcp-tool-core](https://img.shields.io/npm/v/webmcp-tool-core)](https://www.npmjs.com/package/webmcp-tool-core)
-[![npm use-vue-webmcp-tool](https://img.shields.io/npm/v/use-vue-webmcp-tool)](https://www.npmjs.com/package/use-vue-webmcp-tool)
+[![npm vue-webmcp-tool](https://img.shields.io/npm/v/vue-webmcp-tool)](https://www.npmjs.com/package/vue-webmcp-tool)
 [![npm nuxt-webmcp-tool](https://img.shields.io/npm/v/nuxt-webmcp-tool)](https://www.npmjs.com/package/nuxt-webmcp-tool)
 
 A small Vue 3 composable for progressive enhancement with the browser's
@@ -12,18 +12,18 @@ normally and do not throw.
 
 - `webmcp-tool-core`: framework-neutral lifecycle, detection, normalization,
   abort cleanup, and callback freshness.
-- `use-vue-webmcp-tool`: the Vue 3 `useWebMCP` composable.
+- `vue-webmcp-tool`: the Vue 3 `useWebMCP` composable.
 
 ## Install
 
 ```sh
-pnpm add webmcp-tool-core use-vue-webmcp-tool
+pnpm add webmcp-tool-core vue-webmcp-tool
 ```
 
 ## Vue
 
 ```ts
-import { useWebMCP } from 'use-vue-webmcp-tool'
+import { useWebMCP } from 'vue-webmcp-tool'
 
 const { supported, registered, error } = useWebMCP({
   name: 'search-products',

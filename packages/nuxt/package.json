@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@nuxt/kit": "^4.5.0",
-    "use-vue-webmcp-tool": "workspace:*"
+    "vue-webmcp-tool": "workspace:*"
   },
   "devDependencies": {
     "@nuxt/module-builder": "^1.0.3",

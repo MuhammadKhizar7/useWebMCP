@@ -28,7 +28,7 @@ It documents an imperative `document.modelContext.registerTool` implementation
 with product search, order history, reorder, and machine-specification flows.
 
 This repository's [Vue Coffee Shop Demo](/vue/examples/coffee-shop) is a separate Vue
-and Vite implementation using `use-vue-webmcp-tool`. It is an adaptation of
+and Vite implementation using `vue-webmcp-tool`. It is an adaptation of
 the documented coffee-shop idea, not the upstream application or a claim of
 feature parity. In particular, the local app uses Vue routes and local typed
 fixtures, keeps persistent tools in the root component, and owns machine

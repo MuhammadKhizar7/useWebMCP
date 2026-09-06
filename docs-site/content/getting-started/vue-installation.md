@@ -17,12 +17,12 @@ clear when you inspect your dependencies.
 ### Install the packages
 
 ```sh [Terminal]
-pnpm add webmcp-tool-core use-vue-webmcp-tool
+pnpm add webmcp-tool-core vue-webmcp-tool
 ```
 
 ### Confirm Vue is available
 
-`use-vue-webmcp-tool` is a Vue 3 adapter. Your application must already
+`vue-webmcp-tool` is a Vue 3 adapter. Your application must already
 provide Vue 3 and mount a normal Vue application.
 
 ```ts [src/main.ts]
@@ -40,7 +40,7 @@ module evaluation or component setup. The default package environment reads
 
 ```vue [src/App.vue]
 <script setup lang="ts">
-import { useWebMCP } from 'use-vue-webmcp-tool'
+import { useWebMCP } from 'vue-webmcp-tool'
 
 const { supported, registered, error } = useWebMCP({
   name: 'get-greeting',

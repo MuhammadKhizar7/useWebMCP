@@ -16,7 +16,7 @@ component unmounts.
 
 ```vue [src/components/OrderTool.vue]
 <script setup lang="ts">
-import { useWebMCP } from 'use-vue-webmcp-tool'
+import { useWebMCP } from 'vue-webmcp-tool'
 
 const { supported, registered, error } = useWebMCP({
   name: 'lookup-order',
@@ -52,7 +52,7 @@ import type {
   UseWebMCPConfig,
   UseWebMCPOptions,
   UseWebMCPState,
-} from 'use-vue-webmcp-tool'
+} from 'vue-webmcp-tool'
 
 function useWebMCP<TArgs = unknown, TResult = unknown>(
   options: MaybeRefOrGetter<UseWebMCPOptions<TArgs, TResult>>,

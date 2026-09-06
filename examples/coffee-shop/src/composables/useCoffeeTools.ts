@@ -1,5 +1,5 @@
 import { toValue, type MaybeRefOrGetter } from 'vue'
-import { useWebMCP, type UseWebMCPConfig, type UseWebMCPState } from 'use-vue-webmcp-tool'
+import { useWebMCP, type UseWebMCPConfig, type UseWebMCPState } from 'vue-webmcp-tool'
 import type { WebMCPTool } from 'webmcp-tool-core'
 import { getProductById, searchCatalog } from '../data/catalog'
 import { getOrderHistory, getOrderLines } from '../data/orders'

@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "webmcp-tool-core": "workspace:*",
-    "use-vue-webmcp-tool": "workspace:*",
+    "vue-webmcp-tool": "workspace:*",
     "vue": "^3.5.0",
     "vue-router": "^4.5.0"
   },

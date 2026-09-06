@@ -1,13 +1,13 @@
-# use-vue-webmcp-tool
+# vue-webmcp-tool
 
-[![npm version](https://img.shields.io/npm/v/use-vue-webmcp-tool)](https://www.npmjs.com/package/use-vue-webmcp-tool)
+[![npm version](https://img.shields.io/npm/v/vue-webmcp-tool)](https://www.npmjs.com/package/vue-webmcp-tool)
 
 Vue 3 composable for browser WebMCP tools. Wraps `webmcp-tool-core` with reactive options, auto-start on mount, and cleanup on unmount.
 
 ## Install
 
 ```sh
-npm install use-vue-webmcp-tool
+npm install vue-webmcp-tool
 ```
 
 Requires Vue 3.5+ as a peer dependency.
@@ -16,7 +16,7 @@ Requires Vue 3.5+ as a peer dependency.
 
 ```vue
 <script setup>
-import { useWebMCP } from 'use-vue-webmcp-tool'
+import { useWebMCP } from 'vue-webmcp-tool'
 
 const { supported, registered, error } = useWebMCP({
   name: 'search-products',

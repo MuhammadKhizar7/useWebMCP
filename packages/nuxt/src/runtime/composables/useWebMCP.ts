@@ -1,6 +1,6 @@
-export { useWebMCP } from 'use-vue-webmcp-tool'
+export { useWebMCP } from 'vue-webmcp-tool'
 export type {
   UseWebMCPConfig,
   UseWebMCPOptions,
   UseWebMCPState,
-} from 'use-vue-webmcp-tool'
+} from 'vue-webmcp-tool'

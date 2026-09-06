@@ -1,5 +1,5 @@
 {
-  "name": "use-vue-webmcp-tool",
+  "name": "vue-webmcp-tool",
   "version": "0.1.0",
   "description": "Vue 3 composable for browser WebMCP tools",
   "license": "MIT",

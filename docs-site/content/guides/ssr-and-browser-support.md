@@ -19,7 +19,7 @@ module scope or setup code.
 
 ```vue [components/OptionalWebMCP.vue]
 <script setup lang="ts">
-import { useWebMCP } from 'use-vue-webmcp-tool'
+import { useWebMCP } from 'vue-webmcp-tool'
 
 const { supported, registered, error } = useWebMCP({
   name: 'get-status',

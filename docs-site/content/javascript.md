@@ -75,7 +75,7 @@ mount and unmount cleanup.
 
 ```vue [src/components/HoursTool.vue]
 <script setup>
-import { useWebMCP } from 'use-vue-webmcp-tool'
+import { useWebMCP } from 'vue-webmcp-tool'
 
 const { supported, registered } = useWebMCP({
   name: 'get-store-hours',
