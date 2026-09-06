@@ -21,7 +21,9 @@
     "test:entrypoints": "pnpm run build && node scripts/check-entrypoints.mjs",
     "test:watch": "vitest",
     "build": "tsc -b packages/core packages/vue",
-    "release": "pnpm build && pnpm --filter webmcp-tool-core publish && pnpm --filter use-vue-webmcp-tool publish"
+    "nuxt:build": "pnpm --filter nuxt-webmcp-tool build",
+    "nuxt:dev": "pnpm --filter nuxt-webmcp-tool dev",
+    "release": "pnpm build && pnpm nuxt:build && pnpm --filter webmcp-tool-core publish && pnpm --filter use-vue-webmcp-tool publish && pnpm --filter nuxt-webmcp-tool publish"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

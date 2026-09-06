@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "paths": {
+      "@nuxt/schema": ["./node_modules/@nuxt/schema"]
+    }
+  },
+  "include": ["src/**/*.ts", "test/**/*.ts"]
+}

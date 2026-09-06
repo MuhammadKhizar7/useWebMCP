@@ -1,0 +1,39 @@
+{
+  "name": "nuxt-webmcp-tool",
+  "version": "0.1.0",
+  "description": "Nuxt module for WebMCP tool registration",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.mts",
+      "import": "./dist/module.mjs"
+    }
+  },
+  "main": "./dist/module.mjs",
+  "typesVersions": {
+    "*": {
+      ".": ["./dist/types.d.mts"]
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "prepack": "nuxt-module-build build",
+    "dev": "npm run dev:prepare && nuxt dev playground",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+    "build": "nuxt-module-build build"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^4.5.0",
+    "use-vue-webmcp-tool": "workspace:*"
+  },
+  "devDependencies": {
+    "@nuxt/module-builder": "^1.0.3",
+    "@nuxt/schema": "^4.5.0",
+    "@nuxt/test-utils": "^4.2.0",
+    "nuxt": "^4.5.0",
+    "typescript": "^5.9.0"
+  },
+  "publishConfig": { "access": "public" },
+  "engines": { "node": ">=18" }
+}
