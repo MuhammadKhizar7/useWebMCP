@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/nuxt-webmcp-tool)](https://www.npmjs.com/package/nuxt-webmcp-tool)
 
-Nuxt module for registering WebMCP tools in browser applications. Auto-imports the `useWebMCP` composable from [vue-webmcp-tool](../vue).
+Nuxt module for registering WebMCP tools in browser applications. Auto-imports the `useWebMCP` composable and types from [vue-webmcp-tool](../vue). Requires Nuxt 4.0 or later.
 
 ## Install
 
@@ -21,7 +21,7 @@ export default defineNuxtConfig({
 
 ## Usage
 
-`useWebMCP` is auto-imported — no import needed:
+`useWebMCP` is auto-imported — no import needed. The types `UseWebMCPConfig`, `UseWebMCPOptions`, and `UseWebMCPState` are also auto-imported:
 
 ```vue
 <script setup lang="ts">
