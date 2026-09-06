@@ -3,3 +3,63 @@
 
 @source "../../../content/**/*";
 @source "../../app.config.ts";
+
+/* Technical Blueprint — custom theme tokens */
+@theme {
+  --font-display: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* Code block styling */
+.prose {
+  --prose-h1: var(--color-primary-400);
+  --prose-h2: var(--color-primary-300);
+  --prose-h3: var(--color-primary-200);
+}
+
+/* Hero code snippet glow */
+.hero-glow {
+  background: radial-gradient(ellipse at 50% 0%, rgba(16, 185, 129, 0.15) 0%, transparent 60%);
+}
+
+/* Blueprint grid background */
+.blueprint-grid {
+  background-image:
+    linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Code line highlight */
+.code-line-highlight {
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.1) 0%, transparent 100%);
+  border-left: 2px solid var(--color-primary-500);
+}
+
+/* Subtle gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-primary-400), var(--color-cyan-400));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Feature card hover */
+.feature-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px -12px rgba(16, 185, 129, 0.2);
+}
+
+/* Animated typing cursor */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+.typing-cursor::after {
+  content: '|';
+  animation: blink 1s infinite;
+  color: var(--color-primary-400);
+}
