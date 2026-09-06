@@ -2,6 +2,7 @@
 
 [![npm webmcp-tool-core](https://img.shields.io/npm/v/webmcp-tool-core)](https://www.npmjs.com/package/webmcp-tool-core)
 [![npm use-vue-webmcp-tool](https://img.shields.io/npm/v/use-vue-webmcp-tool)](https://www.npmjs.com/package/use-vue-webmcp-tool)
+[![npm nuxt-webmcp-tool](https://img.shields.io/npm/v/nuxt-webmcp-tool)](https://www.npmjs.com/package/nuxt-webmcp-tool)
 
 A small Vue 3 composable for progressive enhancement with the browser's
 `document.modelContext` WebMCP surface. Unsupported browsers keep working
