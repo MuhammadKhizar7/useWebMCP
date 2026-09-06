@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "dev": "nuxt dev",
-    "build": "nuxt build"
+    "build": "npm run generate-api-docs && nuxt build",
+    "generate-api-docs": "node scripts/generate-api-docs.mjs"
   },
   "dependencies": {
     "@nuxt/ui": "4.11.0",
